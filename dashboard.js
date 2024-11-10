@@ -1,44 +1,74 @@
 // dashboard.js
-
 document.addEventListener('DOMContentLoaded', function () {
-    // Mock Data for Dashboard
-    const metrics = {
-        pageViews: 2456,
-        userInteractions: 652,
-        conversionRate: '15.8%',
-    };
+    google.charts.load('current', { packages: ['corechart'] });
+    google.charts.setOnLoadCallback(drawCharts);
 
-    // Function to display metrics
-    function displayMetrics() {
-        document.querySelector('#pageViews').textContent = metrics.pageViews;
-        document.querySelector('#userInteractions').textContent = metrics.userInteractions;
-        document.querySelector('#conversionRate').textContent = metrics.conversionRate;
+    function drawCharts() {
+        drawPageViewsChart();
+        drawUserInteractionsChart();
+        drawConversionRateChart();
     }
 
-    // Animation for metric counters on scroll
-    function animateMetrics() {
-        const metricsSection = document.querySelector('.metrics');
-        const metricsPos = metricsSection.getBoundingClientRect().top;
-        const screenPos = window.innerHeight / 1.3;
+    function drawPageViewsChart() {
+        const data = google.visualization.arrayToDataTable([
+            ['Date', 'View'],
+            ['2024-01-01', 100],
+            ['2024-01-02', 120],
+            ['2024-01-03', 130],
+        ]);
 
-        if (metricsPos < screenPos) {
-            metricsSection.classList.add('appear');
-            window.removeEventListener('scroll', animateMetrics);
-        }
+        const options = {
+            title: 'Page Views Over Time',
+            backgroundColor: '#1f1f1f',
+            titleTextStyle: { color: '#f1f1f1' },
+            hAxis: { textStyle: { color: '#f1f1f1' }, titleTextStyle: { color: '#f1f1f1' } },
+            vAxis: { textStyle: { color: '#f1f1f1' }, titleTextStyle: { color: '#f1f1f1' } },
+            legend: { textStyle: { color: '#f1f1f1' } },
+            colors: ['#61b5b7']
+        };
+
+        const chart = new google.visualization.LineChart(document.getElementById('pageViewsChart'));
+        chart.draw(data, options);
     }
 
-    // Smooth scroll to sections
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            document.getElementById(targetId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+    function drawUserInteractionsChart() {
+        const data = google.visualization.arrayToDataTable([
+            ['Action', 'Count'],
+            ['Likes', 150],
+            ['Shares', 80],
+            ['Comments', 45],
+        ]);
 
-    // Call functions on load
-    displayMetrics();
-    window.addEventListener('scroll', animateMetrics);
+        const options = {
+            title: 'User Interactions',
+            backgroundColor: '#1f1f1f',
+            titleTextStyle: { color: '#f1f1f1' },
+            legend: { textStyle: { color: '#f1f1f1' } },
+            colors: ['#008082', '#00A19D', '#536877']
+        };
+
+        const chart = new google.visualization.PieChart(document.getElementById('userInteractionsChart'));
+        chart.draw(data, options);
+    }
+
+    function drawConversionRateChart() {
+        const data = google.visualization.arrayToDataTable([
+            ['Metric', 'Rate'],
+            ['Completed Signups', 30],
+            ['Incomplete Signups', 70],
+        ]);
+
+        const options = {
+            title: 'Conversion Rate',
+            backgroundColor: '#1f1f1f',
+            titleTextStyle: { color: '#f1f1f1' },
+            hAxis: { textStyle: { color: '#f1f1f1' }, titleTextStyle: { color: '#f1f1f1' } },
+            vAxis: { textStyle: { color: '#f1f1f1' }, titleTextStyle: { color: '#f1f1f1' } },
+            legend: { textStyle: { color: '#f1f1f1' } },
+            colors: ['#61b5b7', '#f1f1f1']
+        };
+
+        const chart = new google.visualization.BarChart(document.getElementById('conversionRateChart'));
+        chart.draw(data, options);
+    }
 });

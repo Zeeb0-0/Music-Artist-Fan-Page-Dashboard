@@ -1,35 +1,30 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Music Artist Fan Page Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
-    
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lugrasimo&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Quintessential&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap" rel="stylesheet">
+
     <!-- Favicon -->
     <link rel="icon" sizes="32x32" href="Images/Mili_logo.png">
-    
+
     <!-- FontAwesome for social icons -->
     <script src="https://kit.fontawesome.com/1bcdd94c61.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!--Google Charts-->
+    
+    <!-- Google Charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
 
 <body>
-    <!-- Header Section -->
+
+    <!-- Navigation Bar -->
     <header>
-        
         <a href="index.html"><h1 class="logo"><img src="Images/Mili_logo.png" alt="">Mili</h1></a>
         <nav>
             <ul class="nav-links">
@@ -42,24 +37,28 @@
         </nav>
     </header>
 
-    <section class="metrics">
-        <h2>Dashboard Metrics</h2>
-        <div class="metric">
-            <h3>Page Views</h3>
-            <p id="pageViews"></p>
+    <!-- Dashboard Section -->
+    <section class="container metrics">
+        <div class="metric" id="pageViews">
+            <h2>Page Views</h2>
+            <div id="pageViewsChart"></div>
         </div>
-        <div class="metric">
-            <h3>User Interactions</h3>
-            <p id="userInteractions"></p>
+        <div class="metric" id="userInteractions">
+            <h2>User Interactions</h2>
+            <div id="userInteractionsChart"></div>
         </div>
-        <div class="metric">
-            <h3>Conversion Rate</h3>
-            <p id="conversionRate"></p>
+        <div class="metric" id="conversionRate">
+            <h2>Conversion Rate</h2>
+            <div id="conversionRateChart"></div>
         </div>
     </section>
     
-    <!--Javascript-->
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Artist Fan Page | Designed by Humphrey Sisante</p>
+    </footer>
+    
+    <!-- Call External JavaScript -->
     <script src="dashboard.js"></script>
-
 </body>
 </html>
