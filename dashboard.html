@@ -20,6 +20,10 @@
     <!-- FontAwesome for social icons -->
     <script src="https://kit.fontawesome.com/1bcdd94c61.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!--Google Charts-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 </head>
 
 <body>
@@ -33,10 +37,29 @@
                 <li><a href="index.html#discography">Discography</a></li>
                 <li><a href="index.html#music-videos">Music Videos</a></li>
                 <li><a href="index.html#social-media">Social Media</a></li>
-                <li><a href="dashboard.html" target="_blank" class="icon"><i class="fa fa-tachometer"></i></a></li>
+                <li><a href="dashboard.html" target="_blank" class="icon"><i class="fa fa-tachometer"></i> Data Dashboard</a></li>
             </ul>
         </nav>
     </header>
+
+    <section class="metrics">
+        <h2>Dashboard Metrics</h2>
+        <div class="metric">
+            <h3>Page Views</h3>
+            <p id="pageViews"></p>
+        </div>
+        <div class="metric">
+            <h3>User Interactions</h3>
+            <p id="userInteractions"></p>
+        </div>
+        <div class="metric">
+            <h3>Conversion Rate</h3>
+            <p id="conversionRate"></p>
+        </div>
+    </section>
+    
+    <!--Javascript-->
+    <script src="dashboard.js"></script>
 
 </body>
 </html>
