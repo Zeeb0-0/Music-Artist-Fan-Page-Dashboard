@@ -1,0 +1,64 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #181818;
+    color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  header p {
+    color: #bbb;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  section {
+    background-color: #252525;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  canvas {
+    max-width: 100%;
+  }
+  
+  .conversion-stat {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #6dd47e;
+  }
+  
+  footer {
+    margin-top: 20px;
+    color: #bbb;
+  }
+  
